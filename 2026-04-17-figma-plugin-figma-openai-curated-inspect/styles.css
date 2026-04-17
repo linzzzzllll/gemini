@@ -1,0 +1,271 @@
+:root {
+  --bg: #050505;
+  --panel: rgba(79, 79, 79, 0.45);
+  --panel-border: rgba(255, 255, 255, 0.18);
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.44);
+  --chip-bg: rgba(255, 255, 255, 0.06);
+  --chip-active: #ab6f09;
+  --track: rgba(217, 217, 217, 0.4);
+  --accent: #ff9500;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.08), transparent 18%),
+    linear-gradient(180deg, #010101 0%, #090909 100%);
+  color: var(--text-primary);
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.screen {
+  width: min(100%, 1280px);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 5;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url("https://www.figma.com/api/mcp/asset/99ce2ac4-a574-4d3b-8cc7-6482bfec72d9") center/cover no-repeat;
+}
+
+.top-bar {
+  position: absolute;
+  inset: 20px 24px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.icon-button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.menu-button {
+  display: grid;
+  place-items: center;
+  gap: 3px;
+}
+
+.menu-button span {
+  display: block;
+  width: 16px;
+  height: 7px;
+  border: 1.8px solid currentColor;
+  border-radius: 2px;
+}
+
+.labels {
+  position: absolute;
+  inset: 92px 130px auto;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: clamp(14px, 1.35vw, 18px);
+}
+
+.option-rail {
+  position: absolute;
+  top: 132px;
+  width: 264px;
+  height: 66px;
+  border-radius: 33px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.left-rail {
+  left: 30px;
+}
+
+.right-rail {
+  right: 28px;
+}
+
+.chip {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 12px;
+}
+
+.chip-active {
+  background: var(--chip-active);
+  color: #191100;
+}
+
+.chip-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.bottom-icons {
+  position: absolute;
+  inset: auto 120px 74px;
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 28px;
+}
+
+.progress-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(701px, calc(100% - 40px));
+  min-height: 241px;
+  padding: 30px 34px;
+  display: grid;
+  grid-template-columns: 275px 1fr;
+  gap: 29px;
+  transform: translate(-50%, -50%);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: var(--panel);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.progress-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01)),
+    rgba(34, 34, 34, 0.42);
+  pointer-events: none;
+}
+
+.progress-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cup-preview {
+  width: 275px;
+  height: 166px;
+  padding: 0;
+  overflow: hidden;
+  border: 1.1px solid white;
+  border-radius: 13px;
+  background: black;
+}
+
+.cup-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.progress-panel {
+  padding-top: 16px;
+}
+
+.progress-panel h2 {
+  margin: 0 0 22px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.progress-track {
+  position: relative;
+  width: 313px;
+  max-width: 100%;
+  height: 15px;
+  border-radius: 63px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 82px;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.progress-glow {
+  position: absolute;
+  width: 124px;
+  height: 124px;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(255, 149, 0, 0.32) 0%, rgba(255, 149, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.progress-value {
+  margin: 18px 0 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    aspect-ratio: 4 / 3;
+  }
+
+  .labels,
+  .option-rail,
+  .bottom-icons {
+    display: none;
+  }
+
+  .progress-card {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .cup-preview {
+    width: 100%;
+    height: 200px;
+  }
+
+  .progress-panel {
+    padding-top: 0;
+  }
+}
